@@ -14,7 +14,10 @@ def main(args):
             print(path)
 
             if os.path.lexists(path):
-                os.remove(path)
+                if os.path.islink(path) or not os.path.isdir(path):
+                    os.remove(path)
+                else:
+                    shutil.rmtree(path)
 
             from_path = os.path.abspath(f)
             os.system("ln -s {} {}".format(from_path, path))
