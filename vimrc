@@ -21,24 +21,6 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" XML
-
-au FileType xml set tabstop=4
-au FileType xml set softtabstop=2
-au FileType xml set shiftwidth=2
-au FileType xml set expandtab
-au FileType xml set shiftround
-
-" Haskell
-
-au FileType haskell set tabstop=8
-au FileType haskell set expandtab
-au FileType haskell set shiftround
-
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-
 " GNUplot
-
 au BufRead,BufNewFile *.plt setfiletype gnuplot
 
