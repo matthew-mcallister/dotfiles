@@ -1,4 +1,4 @@
-" Show line numbers
+" show line numbers
 set number
 
 " size of a hard tabstop
