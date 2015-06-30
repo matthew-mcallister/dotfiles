@@ -3,3 +3,5 @@
 	name = Matthew McAllister
 [push]
 	default = matching
+[core]
+	whitespace = true
