@@ -9,7 +9,7 @@
 	url = https://github.com/tpope/vim-sensible
 [submodule "vim/bundle/gmsh.vim"]
 	path = vim/bundle/gmsh.vim
-	url = https://github.com/nschloe/gmsh.vim
+	url = https://github.com/matthew-mcallister/gmsh.vim
 [submodule "vim/bundle/vim-octave"]
 	path = vim/bundle/vim-octave
 	url = https://github.com/jvirtanen/vim-octave
