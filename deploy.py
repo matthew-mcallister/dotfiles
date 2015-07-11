@@ -35,7 +35,8 @@ def main(args):
             os.system("ln -s {} {}".format(from_path, path))
 
     histfiles = [
-        "bash_history"
+        "bash_history",
+        "viminfo"
     ]
 
     print("\nRemoving history files...")
