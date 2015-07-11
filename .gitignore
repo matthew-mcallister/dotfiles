@@ -1,1 +1,4 @@
 vim/.netrwhist
+xmonad/*
+!xmonad/*.hs
+!xmonad/*.sh

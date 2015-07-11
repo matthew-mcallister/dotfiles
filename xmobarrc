@@ -1,0 +1,41 @@
+Config
+	{ position = TopW L 100
+	, font = "xft: Open Sans:size=9"
+	, borderColor = "black"
+	, border = TopB
+	, alpha = 96
+	, commands =
+		[ Run Network "wlan0"
+			[ "-t", "<rx>KB/<tx>KB"
+			, "-L", "0"
+			, "-H", "32"
+			, "-n", "green"
+			, "-h", "red"
+			] 10
+		, Run Wireless "wlan0" ["-t", "<essid> <quality>%"] 10
+		, Run Battery
+			[ "-t", "Batt: <left>%<acstatus>"
+			, "-L", "20"
+			, "-H", "80"
+			, "-l", "red"
+			, "-h", "green"
+			, "--"
+			, "-O", " <fc=#ffffff>\x2607</fc>"
+			, "-i", " <fc=#ffffff>\x2607</fc>"
+			, "-o", ""
+			, "-f", "ADP1/online"
+			] 50
+		, Run Volume "default" "Master"
+			[ "-t", "Vol: <volume>%<status>"
+			, "--"
+			, "-O", ""
+			, "-o", " [x]"
+			] 4
+		, Run Brightness ["-t", "Lite: <percent>%"] 4
+		, Run Date "%a %b %_d %Y %l:%M:%S %p" "date" 10
+		, Run XMonadLog
+		]
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = "%XMonadLog%}{<fc=#00cdcd>%wlan0wi% %wlan0%</fc> | %bright% | %default:Master% | <fc=#cdcd00>%battery%</fc> | <fc=#ee9a00>%date%</fc>"
+	}
