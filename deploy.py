@@ -20,7 +20,7 @@ def main(args):
     for f in glob.glob("*"):
         if not f.startswith(".") and not f.endswith(".py"):
             if f in prereqs and os.system(prereqs[f] + " > /dev/null 2>&1"):
-                break
+                continue
 
             path = home + "/." + f
             print(path)
