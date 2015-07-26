@@ -45,7 +45,7 @@ def main(args):
         path = home + "/." + f
         print(path)
 
-        if os.path.lexists(path) and not os.path.isdir(path):
+        if os.path.lexists(path):
             os.remove(path)
 
         os.system("ln -s /dev/null {}".format(path))
