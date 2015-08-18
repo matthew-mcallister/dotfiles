@@ -1,42 +1,43 @@
 import System.IO
 
 import XMonad
-import XMonad.Actions.Volume
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
-import XMonad.Util.Cursor
-import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Util.Run(spawnPipe)
+import Graphics.X11.ExtraTypes.XF86
 
-xK_volumeDown = 0x1008ff11
-xK_volumeUp = 0x1008ff13
-xK_mute = 0x1008ff12
-xK_brightnessDown = 0x1008ff03
-xK_brightnessUp = 0x1008ff02
+import qualified Data.Map as M
 
-main = do
-    xmproc <- spawnPipe "~/.xmonad/spawn-xmobar.sh"
-    xmonad $ defaultConfig
-        { startupHook = setDefaultCursor xC_left_ptr
-        , manageHook  = composeAll
-            [ manageDocks
-            , isFullscreen --> doFullFloat
-            , manageHook defaultConfig
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
+myKeys conf@(XConfig {XMonad.modMask = modMask}) =
+    M.union addedKeys defaultKeys
+    where
+        addedKeys = M.fromList
+            [ ((modMask .|. shiftMask, xK_f), spawn "firefox")
+            , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2%-")
+            , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2%+")
+            , ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
+            , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 4")
+            , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 4")
             ]
-        , layoutHook  = smartBorders . avoidStruts $ layoutHook defaultConfig
-        , logHook     = dynamicLogString xmobarPP >>= xmonadPropLog
-        , modMask     = mod4Mask
-        , terminal    = "gnome-terminal"
-        , focusFollowsMouse = False
-        }
-        `additionalKeys`
-        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
-        , ((mod4Mask .|. shiftMask, xK_f), spawn "firefox")
-        , ((0, 0x1008ff11), lowerVolume 4 >> return ()) -- Lower volume
-        , ((0, 0x1008ff13), raiseVolume 4 >> return ()) -- Raise volume
-        , ((0, 0x1008ff12), toggleMute >> return ()) -- Mute
-        , ((0, 0x1008ff03), spawn "xbacklight -dec 4") -- Lower brightness
-        , ((0, 0x1008ff02), spawn "xbacklight -inc 4") -- Raise brightness
+        defaultKeys = keys defaultConfig conf
+
+myConfig = defaultConfig
+    { manageHook = composeAll
+        [ manageDocks
+        , isFullscreen --> doFullFloat
+        , manageHook defaultConfig
         ]
+    , layoutHook = smartBorders . avoidStruts $ layoutHook defaultConfig
+    , logHook = dynamicLogString xmobarPP >>= xmonadPropLog
+    , modMask = mod4Mask
+    , terminal = "/usr/bin/x-terminal-emulator"
+    , focusFollowsMouse = False
+    , keys = myKeys
+    }
+
+main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey myConfig
+
