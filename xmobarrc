@@ -3,7 +3,7 @@ Config
 	, font = "xft: Open Sans:size=9"
 	, borderColor = "black"
 	, border = TopB
-	, alpha = 96
+	, alpha = 144
 	, commands =
 		[ Run Network "wlan0"
 			[ "-t", "<rx>KB/<tx>KB"
