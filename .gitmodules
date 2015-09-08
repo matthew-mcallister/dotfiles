@@ -10,3 +10,6 @@
 [submodule "vim/bundle/vim-octave"]
 	path = vim/bundle/vim-octave
 	url = https://github.com/jvirtanen/vim-octave
+[submodule "vim/bundle/vim-glsl"]
+	path = vim/bundle/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
