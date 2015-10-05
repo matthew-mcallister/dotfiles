@@ -2,18 +2,10 @@ set number
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set noexpandtab
 set noswapfile
+set expandtab
 
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set relativenumber!
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <Bslash>r :call NumberToggle()<cr>
+nnoremap <Leader>r :set relativenumber!<cr>
 
 execute pathogen#infect()
 
