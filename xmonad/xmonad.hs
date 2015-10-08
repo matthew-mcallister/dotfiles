@@ -32,7 +32,10 @@ myConfig = defaultConfig
         , manageHook defaultConfig
         ]
     , layoutHook = smartBorders . avoidStruts $ layoutHook defaultConfig
-    , logHook = dynamicLogString xmobarPP >>= xmonadPropLog
+    , logHook = dynamicLogString xmobarPP
+            { ppOutput = \_ -> return ()
+            }
+            >>= xmonadPropLog
     , modMask = mod4Mask
     , terminal = "/usr/bin/x-terminal-emulator"
     , focusFollowsMouse = False
@@ -40,4 +43,3 @@ myConfig = defaultConfig
     }
 
 main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey myConfig
-
