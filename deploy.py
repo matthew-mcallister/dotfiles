@@ -38,7 +38,7 @@ def main(args):
         "bash_history",
         "viminfo",
         "lesshst",
-        ".python_history",
+        "python_history",
     ]
 
     print("\nRemoving history files...")
