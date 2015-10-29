@@ -6,6 +6,7 @@ set softtabstop=4
 set noswapfile
 set expandtab
 set textwidth=79
+set nojoinspaces
 
 nnoremap <Leader>r :set relativenumber!<cr>
 
