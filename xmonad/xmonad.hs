@@ -5,11 +5,10 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
+import XMonad.Util.Run
 import Graphics.X11.ExtraTypes.XF86
 
 import qualified Data.Map as M
-
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) =
@@ -22,6 +21,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) =
             , ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
             , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 4")
             , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 4")
+            , ((modMask, xK_b), sendMessage ToggleStruts)
             ]
         defaultKeys = keys defaultConfig conf
 
@@ -32,14 +32,13 @@ myConfig = defaultConfig
         , manageHook defaultConfig
         ]
     , layoutHook = smartBorders . avoidStruts $ layoutHook defaultConfig
-    , logHook = dynamicLogString xmobarPP
-            { ppOutput = \_ -> return ()
-            }
-            >>= xmonadPropLog
+    , logHook = dynamicLogString xmobarPP {
+            ppOutput = \_ -> return ()
+        } >>= xmonadPropLog
     , modMask = mod4Mask
     , terminal = "/usr/bin/x-terminal-emulator"
     , focusFollowsMouse = False
     , keys = myKeys
     }
 
-main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey myConfig
+main = xmonad myConfig >> spawnPipe "xmobar"
