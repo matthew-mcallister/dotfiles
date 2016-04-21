@@ -23,15 +23,15 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) =
             , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 4")
             , ((modMask, xK_b), sendMessage ToggleStruts)
             ]
-        defaultKeys = keys defaultConfig conf
+        defaultKeys = keys def conf
 
-myConfig = defaultConfig
+myConfig = def
     { manageHook = composeAll
         [ manageDocks
         , isFullscreen --> doFullFloat
-        , manageHook defaultConfig
+        , manageHook def
         ]
-    , layoutHook = smartBorders . avoidStruts $ layoutHook defaultConfig
+    , layoutHook = smartBorders . avoidStruts $ layoutHook def
     , logHook = dynamicLogString xmobarPP {
             ppOutput = \_ -> return ()
         } >>= xmonadPropLog
@@ -41,4 +41,4 @@ myConfig = defaultConfig
     , keys = myKeys
     }
 
-main = xmonad myConfig >> spawn "/usr/bin/xmobar"
+main = spawn "/usr/bin/xmobar" >> xmonad myConfig
