@@ -41,4 +41,4 @@ myConfig = defaultConfig
     , keys = myKeys
     }
 
-main = xmonad myConfig >> spawnPipe "xmobar"
+main = xmonad myConfig >> spawn "/usr/bin/xmobar"
