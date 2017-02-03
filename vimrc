@@ -10,6 +10,7 @@ set textwidth=79
 set nojoinspaces
 
 nnoremap <Leader>r :set relativenumber!<cr>
+nnoremap <Leader>s :syntax sync fromstart<cr>
 
 " I switch between 72 and 79 textwidth often
 " <Leader>c swaps between 72 and 79 textwidth
