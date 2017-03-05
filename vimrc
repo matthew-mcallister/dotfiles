@@ -9,6 +9,8 @@ set expandtab
 set textwidth=79
 set nojoinspaces
 
+colorscheme slate
+
 nnoremap <Leader>r :set relativenumber!<cr>
 nnoremap <Leader>s :syntax sync fromstart<cr>
 
