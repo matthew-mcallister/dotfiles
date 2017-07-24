@@ -5,7 +5,6 @@ set shiftwidth=4
 set softtabstop=4
 set noswapfile
 set viminfo=
-set expandtab
 set textwidth=79
 set nojoinspaces
 
