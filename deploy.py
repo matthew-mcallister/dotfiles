@@ -9,19 +9,11 @@ def main(args):
     os.system("git submodule sync")
     os.system("git submodule update --init")
 
-    prereqs = {
-        "xmonad": "xmonad --version",
-        "xmobarrc": "xmobar --version"
-    }
-
     home = os.path.expanduser("~")
 
     print("\nCreating file links...")
     for f in glob.glob("*"):
         if not f.startswith(".") and not f.endswith(".py"):
-            if f in prereqs and os.system(prereqs[f] + " > /dev/null 2>&1"):
-                continue
-
             path = home + "/." + f
             print(path)
 
