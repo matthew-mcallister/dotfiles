@@ -7,6 +7,7 @@ set noswapfile
 set viminfo=
 set textwidth=79
 set nojoinspaces
+set noexpandtab
 
 colorscheme slate
 
