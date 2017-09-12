@@ -28,6 +28,7 @@ function AdjustTextwidth(count)
     else
         let &textwidth=a:count
     endif
+	echo "Set textwidth to" &textwidth
 endfunction
 nnoremap <Leader>c :<C-U>call AdjustTextwidth(v:count)<cr>
 
