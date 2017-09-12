@@ -33,3 +33,17 @@ nnoremap <Leader>c :<C-U>call AdjustTextwidth(v:count)<cr>
 
 execute pathogen#infect()
 
+" Global syntastic settings
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 0
+
+let g:syntastic_mode_map = {
+	\ "mode": "passive",
+	\ "active_filetypes": ["rust"] }
+
+" No out-of-the-box python 3 support :(
+let g:syntastic_python_checkers = []
+let g:syntastic_rust_checkers = ["cargo"]
+
+nnoremap <Leader>m :SyntasticToggleMode<cr>

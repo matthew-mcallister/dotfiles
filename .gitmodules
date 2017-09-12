@@ -12,16 +12,19 @@
 	url = https://github.com/jvirtanen/vim-octave
 [submodule "vim/bundle/vim-glsl"]
 	path = vim/bundle/vim-glsl
-	url = https://github.com/tikhomirov/vim-glsl.git
+	url = https://github.com/tikhomirov/vim-glsl
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim
 [submodule "vim/bundle/Vim-Jinja2-Syntax"]
 	path = vim/bundle/Vim-Jinja2-Syntax
-	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+	url = https://github.com/Glench/Vim-Jinja2-Syntax
 [submodule "vim/bundle/vim-toml"]
 	path = vim/bundle/vim-toml
-	url = https://github.com/cespare/vim-toml.git
+	url = https://github.com/cespare/vim-toml
 [submodule "vim/bundle/editorconfig-vim"]
 	path = vim/bundle/editorconfig-vim
-	url = git@github.com:editorconfig/editorconfig-vim
+	url = https://editorconfig/editorconfig-vim
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://vim-syntastic/syntastic
