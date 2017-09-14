@@ -5,5 +5,4 @@ alias s='ls'
 alias l='ls'
 alias sl='ls'
 alias grep='grep --color=auto'
-alias tmux="TERM=screen-256color tmux"
 [ -f .bash_aliases.local ] && . .bash_aliases.local
