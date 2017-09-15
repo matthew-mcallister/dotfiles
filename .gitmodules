@@ -24,7 +24,7 @@
 	url = https://github.com/cespare/vim-toml
 [submodule "vim/bundle/editorconfig-vim"]
 	path = vim/bundle/editorconfig-vim
-	url = https://editorconfig/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = https://vim-syntastic/syntastic
+	url = https://github.com/vim-syntastic/syntastic
