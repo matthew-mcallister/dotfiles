@@ -12,7 +12,7 @@ set noexpandtab
 colorscheme slate
 
 nnoremap <Leader>r :set relativenumber! <bar> :set number!<cr>
-nnoremap <Leader>p :set paste!<cr>
+nnoremap <Leader>p :set paste! <bar> :echo "Paste is" &paste<cr>
 nnoremap <Leader>s :syntax sync fromstart<cr>
 
 " I switch between 72 and 79 textwidth often
