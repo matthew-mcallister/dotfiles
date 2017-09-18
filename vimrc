@@ -11,6 +11,8 @@ set noexpandtab
 
 colorscheme slate
 
+nnoremap K <NOP>
+
 nnoremap <Leader>r :set relativenumber! <bar> :set number!<cr>
 nnoremap <Leader>p :set paste! <bar> :echo "Paste is" &paste<cr>
 nnoremap <Leader>s :syntax sync fromstart<cr>
