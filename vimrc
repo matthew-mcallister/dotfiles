@@ -36,6 +36,9 @@ nnoremap <Leader>c :<C-U>call AdjustTextwidth(v:count)<cr>
 
 execute pathogen#infect()
 
+" .editorconfig
+let g:EditorConfig_max_line_indicator = "none"
+
 " Global syntastic settings
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
