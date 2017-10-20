@@ -6,3 +6,7 @@
 [core]
 	whitespace = true
 	editor = vim
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
