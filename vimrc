@@ -8,6 +8,7 @@ set viminfo=
 set textwidth=79
 set nojoinspaces
 set noexpandtab
+set colorcolumn=80
 
 colorscheme slate
 
